@@ -16,4 +16,4 @@ First of all login from your Twitter account and goto [Twitter Apps](https://dev
 
 ##The System Architecture
 
-![0](http://i.imgur.com/chart.jpg)
+![0](https://imgur.com/BDJtTgK)
