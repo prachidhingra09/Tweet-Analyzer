@@ -14,6 +14,6 @@ First of all login from your Twitter account and goto [Twitter Apps](https://dev
 * textblob
 
 
-##The System Architecture
+## The System Architecture
 
 ![0](https://imgur.com/a/MMym4WK)
