@@ -12,3 +12,8 @@ First of all login from your Twitter account and goto [Twitter Apps](https://dev
 * Python 3.6
 * tweepy
 * textblob
+
+
+##The System Architecture
+
+![0](http://i.imgur.com/chart.jpg)
