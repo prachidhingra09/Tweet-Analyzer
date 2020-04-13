@@ -11,8 +11,8 @@ warnings.filterwarnings("ignore", category=DeprecationWarning)
 
 
 
-train  = pd.read_csv('train_tweets.csv')
-test = pd.read_csv('test_tweets.csv')
+train  = pd.read_csv('./datasets/train_tweets.csv')
+test = pd.read_csv('./datasets/test_tweets.csv')
 
 
 print(train[train['label'] == 0].head(10))
