@@ -19,8 +19,8 @@ from sklearn.metrics import accuracy_score, confusion_matrix
 
 
 
-train  = pd.read_csv('train_tweets.csv')
-test = pd.read_csv('test_tweets.csv')
+train  = pd.read_csv('./datasets/train_tweets.csv')
+test = pd.read_csv('./datasets/test_tweets.csv')
 
 
 #print(train[train['label'] == 0].head(10))
