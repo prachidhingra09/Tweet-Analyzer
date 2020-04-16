@@ -279,9 +279,15 @@ if __name__ == "__main__":
     #print(accuracy)
 
     np.random.seed(1337)
+<<<<<<< HEAD
     unigrams = utils.top_n_words('./datasets/train_tweets-freqdist.pkl', UNIGRAM_SIZE)
     if USE_BIGRAMS:
         bigrams = utils.top_n_bigrams('./datasets/train_tweets-freqdist-bi.pkl', BIGRAM_SIZE)
+=======
+    unigrams = utils.top_n_words('./datasets/train-tweets-freqdist.pkl', UNIGRAM_SIZE)
+    if USE_BIGRAMS:
+        bigrams = utils.top_n_bigrams('./datasets/train-tweets-freqdist-bi.pkl', BIGRAM_SIZE)
+>>>>>>> 1945780f86eb373b52315a0ffa4b0f2af81cbab2
     tweets = process_tweets(TRAIN_PROCESSED_FILE, test_file=False)
     if TRAIN:
         train_tweets, val_tweets = utils.split_data(tweets)
