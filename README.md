@@ -32,5 +32,14 @@ Change the values of `TRAIN_PROCESSED_FILE`, `TEST_PROCESSED_FILE`, `FREQ_DIST_F
 
 2. Run `python3 tAnalyser.py` for predictions of your model to be saved in `decisionTreeResult.csv`.
 
+> Note: Set TRAIN = True while training and then change it to False while testing.
+
+#### Files
+
+- tAnalyser.py (Main file with preprocessing and decisionTree algorithm)
+- util.py (Additional Funtinalities used within the algorithm)
+- stats.py (General statistical information about the dataset and will two pickle files which are the frequency distribution of unigrams and bigrams in the training dataset. )
+- decisionTreeResult.csv (The final results are stored here)
+- ./datasets/ (Directory containing all the required data for the model)
 
 > Built By: `iimashfaaq` & `prachidhingra09`
