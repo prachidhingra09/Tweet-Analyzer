@@ -36,10 +36,15 @@ Change the values of `TRAIN_PROCESSED_FILE`, `TEST_PROCESSED_FILE`, `FREQ_DIST_F
 
 #### Files
 
-- tAnalyser.py (Main file with preprocessing and decisionTree algorithm)
-- util.py (Additional Funtinalities used within the algorithm)
-- stats.py (General statistical information about the dataset and will two pickle files which are the frequency distribution of unigrams and bigrams in the training dataset. )
-- decisionTreeResult.csv (The final results are stored here)
-- ./datasets/ (Directory containing all the required data for the model)
+- `tAnalyser.py` \
+(Main file with preprocessing and decisionTree algorithm)
+- `util.py` \
+(Additional Funtinalities used within the algorithm)
+- `stats.py` \
+(General statistical information about the dataset and will two pickle files which are the frequency distribution of unigrams and bigrams in the training dataset. )
+- `decisionTreeResult.csv` \
+(The final results are stored here)
+- `./datasets/` \
+(Directory containing all the required data for the model)
 
 > Built By: `iimashfaaq` & `prachidhingra09`
