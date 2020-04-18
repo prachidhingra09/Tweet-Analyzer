@@ -80,7 +80,7 @@ def lemmatization(wordsList): #identifying words or lemma
     return wordsList
 
 
-def vector_transformation(wordsList):
+def vector_transformation(wordsList): # WORDS LIST TRANSFORMED INTO A VECTOR
     
     cv = CountVectorizer()
     wordsList = np.asarray(wordsList)
@@ -90,7 +90,7 @@ def vector_transformation(wordsList):
     
     return vect
 
-def train_test_splitting(vect):
+def train_test_splitting(vect): #SPLITS INTO TRAIN AND TEST VECTORS
     
     y = data['label'].values
     x_train,x_test,y_train,y_test = train_test_split(vect,y,test_size=0.25)
@@ -256,6 +256,7 @@ if __name__ == "__main__":
         random.shuffle(tweets)
         train_tweets = tweets
     del tweets
+    # TREE CONSTRUCTION
     print('Extracting features & training batches')
     clf = DecisionTreeClassifier(max_depth=25)
     batch_size = len(train_tweets)
@@ -271,7 +272,7 @@ if __name__ == "__main__":
     print('\n')
     print('Testing')
     if TRAIN:
-        # TRAINING PHASE
+        # TRAINING PHASE WHEN TRAIN SET TO TRUE
         correct, total = 0, len(val_tweets)
         i = 1
         batch_size = len(val_tweets)
@@ -285,7 +286,7 @@ if __name__ == "__main__":
             i += 1
         print('\nCorrect: %d/%d = %.4f %%' % (correct, total, correct * 100. / total))
     else:
-        # TESTING PHASE
+        # TESTING PHASE WHEN TRAIN SET TO FALSE
         del train_tweets
         test_tweets = process_tweets(TEST_PROCESSED_FILE, test_file=True)
         n_test_batches = int(np.ceil(len(test_tweets) / float(batch_size)))
