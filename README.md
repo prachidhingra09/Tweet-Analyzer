@@ -10,10 +10,6 @@ This project results in the sentiments of people regarding to any event happenin
 
 ![0](https://imgur.com/BDJtTgK.jpg)
 
-## Dataset Information
-
-We use and compare various different methods for sentiment analysis on tweets (a binary classification problem). The training dataset is expected to be a csv file of type `tweet_id,sentiment,tweet` where the `tweet_id` is a unique integer identifying the tweet, `sentiment` is either `1` (positive) or `0` (negative), and `tweet` is the tweet enclosed in `""`. Similarly, the test dataset is a csv file of type `tweet_id,tweet`. Please note that csv headers are not expected and should be removed from the training and test datasets. 
-
 ## Requirements
 
 There are some general library requirements for the project and some which are specific to individual methods. The general requirements are as follows.  
@@ -21,6 +17,14 @@ There are some general library requirements for the project and some which are s
 * `scikit-learn`
 * `scipy`
 * `nltk`
+
+## Algorithm Implemented
+#### Decision Tree Classification
+`Decision tree` builds classification or regression models in the form of a tree structure. It breaks down a dataset into smaller and smaller subsets while at the same time an associated decision tree is incrementally developed. The final result is a tree with `decision nodes` and `leaf nodes`. 
+
+## Dataset Information
+
+We use and compare various different methods for sentiment analysis on tweets (a binary classification problem). The training dataset is expected to be a csv file of type `tweet_id,sentiment,tweet` where the `tweet_id` is a unique integer identifying the tweet, `sentiment` is either `1` (positive) or `0` (negative), and `tweet` is the tweet enclosed in `""`. Similarly, the test dataset is a csv file of type `tweet_id,tweet`. Please note that csv headers are not expected and should be removed from the training and test datasets. 
 
 ### Preprocessing 
 
