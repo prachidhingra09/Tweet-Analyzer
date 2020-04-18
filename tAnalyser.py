@@ -11,7 +11,7 @@ from nltk.stem import PorterStemmer, WordNetLemmatizer
 from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.linear_model import LogisticRegression
 from sklearn.model_selection import train_test_split
-from sklearn.metrics import accuracy_score, confusion_matrix
+from sklearn.metrics import accuracy_score, confusion_matrix, classification_report
 
 from sklearn.tree import DecisionTreeClassifier
 from scipy.sparse import lil_matrix
@@ -26,7 +26,7 @@ TRAIN_PROCESSED_FILE = './datasets/TRAIN_PROCESSED_FILE.csv'
 TEST_PROCESSED_FILE = './datasets/TEST_PROCESSED_FILE.csv'
 
 # TRUE WHILE TRAINING
-TRAIN = True
+TRAIN = False
 UNIGRAM_SIZE = 15000
 VOCAB_SIZE = UNIGRAM_SIZE
 
@@ -203,16 +203,16 @@ def save_processed_file(linesList, processed_file_name, csv_file_name, test_file
             # write_status(i + 1, total)
 
     save_to_file.close()
-    print('\nSaved processed tweets to: %s' % processed_file_name)
+    print('Saved processed tweets to: %s' % processed_file_name)
     return processed_file_name
 
 if __name__ == "__main__":
 
-    print(TRAIN_FILE.shape)
-    print(TEST_FILE.shape)
+    # print(TRAIN_FILE.shape)
+    # print(TEST_FILE.shape)
 
     data = TRAIN_FILE.append(TEST_FILE, ignore_index=True)
-    print(data.shape)
+    # print(data.shape)
 
 
     data['clean_tweets'] = np.vectorize(delete_twitter_handle)(data['tweet'], "@[\w]*") 
@@ -232,6 +232,8 @@ if __name__ == "__main__":
     wordsList = lemmatization(wordsList)
     print('\n-Lemmatization-\n')
     print(wordsList[:3])
+
+    vect = vector_transformation(wordsList)
 
     for i in range(len(wordsList)):
         wordsList[i] = ' '.join(wordsList[i])
@@ -299,4 +301,22 @@ if __name__ == "__main__":
             i += 1
         predictions = [(str(j), int(predictions[j])) for j in range(len(test_tweets))]
         utils.save_results_to_csv(predictions, 'decisionTreeResult.csv')
-        print('\nSaved to decisionTreeResult.csv')
+        print('\nSaved to decisionTreeResult.csv\n')
+
+        # PRECISION F1 SCORES
+
+        x_train,x_test,y_train,y_test = train_test_splitting(vect)
+        x_train = np.nan_to_num(x_train)
+        y_train = np.nan_to_num(y_train)
+        x_test = np.nan_to_num(x_test)
+        y_test = np.nan_to_num(y_test)
+        classifier = DecisionTreeClassifier()
+        classifier.fit(x_train, y_train)
+        y_pred = classifier.predict(x_test)
+        print('\nConfusion Matrix - \n')
+        print(confusion_matrix(y_test, y_pred))
+        print('\nREPORT - \n')
+        print(classification_report(y_test, y_pred))
+        print('\nAccuracy Score DECISION TREE -')
+        accuracy = accuracy_score(y_test,y_pred)
+        print(accuracy*100 + '%')
